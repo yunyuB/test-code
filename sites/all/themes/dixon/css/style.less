@@ -1,0 +1,315 @@
+/* variable definitions */
+
+@dixongold: #8d7740; 
+@dixongrey: #cccccc;
+@dixonlightgold: #ac9b49;
+@dixongreen: #2a5450;
+@dixonh1: 26px;
+@dixonh2: 24px;
+@dixonh3: 20px * 0.75;
+@dixonparagraphmargin: 50px; 
+
+
+
+ /* LESS Mixins definition */
+.opacity( @opacity: 0.8 ) {  
+    @ieopacity: @opacity * 100;
+    filter: ~"alpha(opacity = @{ieopacity} )";
+     
+    -khtml-opacity: @opacity;
+      -moz-opacity: @opacity;
+           opacity: @opacity;
+}
+
+
+.rotate(@degree:7deg) {
+    -ms-transform: rotate(@degree); /* IE 9 */
+    -webkit-transform: rotate(@degree); /* Chrome, Safari, Opera */
+    transform: rotate(@degree);	
+}
+
+
+.rounded(@radius:5px){
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius; 
+}
+
+
+.gradient(@start, @end ) {
+    background: @start;
+    filter: ~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@start', endColorstr='@end',GradientType=0 )";
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@end)); 
+    background: -webkit-linear-gradient(top,  @start 0%, @end 100%); 
+    background:    -moz-linear-gradient(top,  @start 0%, @end 100%);
+    background:     -ms-linear-gradient(top,  @start 0%, @end 100%); 
+    background:      -o-linear-gradient(top,  @start 0%, @end 100%); 
+    background:         linear-gradient(top,  @start 0%, @end 100%);    
+}
+
+
+/* end of variable & Mixins definitions */
+
+*, body, button, input, textarea, select {
+  text-rendering: optimizelegibility;
+}
+a:focus{outline: none;}
+div.messages{margin-bottom: 0px;}
+
+body{padding-top:0px!important;
+   .full-width-header{width:100%;position:absolute;top:0px;left:0px;z-index: 9;}	
+   .stickynav-active {position: fixed;top: 0;z-index: 1000;background-color: #000;border-bottom: 1px solid @dixongold;
+         &#navbar .nav li a{color:#FFF;
+               &::after{border:1px solid #FFF;}
+           }
+        
+     } 
+   #navbar{
+        .navbar-nav, .nav{float: none;display: inline-block;width:100%; text-align:center;padding-top:10px;
+             li{float: none;display: inline-block;padding-left:32px;
+             	a, span{color: #000;text-transform: uppercase;line-height: 60px;vertical-align: middle;padding:0px;
+                   &::after{content: '';width:5px; height:11px;margin-left:35px;border:1px solid #000;
+                    display: inline-block;vertical-align: middle; margin-top:-2px;
+                    -ms-transform: skewY(45deg) rotate(23deg); /* IE 9 */
+                    -webkit-transform: skewY(45deg) rotate(23deg); /* Chrome, Safari, Opera */
+                     transform: skewY(45deg) rotate(23deg);   
+                  }
+             	}
+
+             	&.last{
+             		a, span{
+             			&::after{display: none;}
+             		}
+             	}
+
+             	a:hover, a:focus{background:none;color:@dixongold;}
+             } 
+        }
+   }
+  
+
+  h1.page-header{color:@dixongold;margin-top:50px;}
+
+   .section_bg{background-size: cover!important; height: 80vh;background-attachment: fixed!important;position: relative;
+          .logo_text{width: 30%;position: absolute;left:45%;margin-left: -10%;top:45%;margin-top:-4%;color:#FFF;font-size: 20px;text-align: center;
+               img{margin-bottom: 20px;}
+           }
+
+     }
+.section_sep{position: relative;}
+.section_sep::before, .section_sep::after {
+  border-bottom: 30px solid white;
+  box-sizing: border-box;
+  content: "";
+  height: 0;
+  position: absolute;
+  bottom: 0;
+}
+.section_sep.links::before, .section_sep.links::after {
+  border-bottom: 30px solid @dixongreen;
+}
+
+
+.section_sep::before {
+  border-right: 28px solid transparent;
+  display: block;
+  left: 0;
+  width: 50%;
+}
+
+.section_sep::after {
+  border-left: 28px solid transparent;
+  right: 0;
+  width: 50%;
+}
+.section_about{padding-bottom: 70px;}
+
+.about_txt_wrap{width: 80%;margin:0 auto;text-align: center;padding-top:70px;
+     h2{text-transform: uppercase; color: @dixongold;margin-bottom: 50px;}
+     p{font-size: 18px;line-height: 2.4;margin-bottom: 70px;}
+ }
+
+.about_logo{text-align: center;vertical-align: middle;
+       img{display: inline-block;height:auto;width:150px;margin-left:50px;margin-right: 50px;}
+       div{display: inline-block;}
+       .about_img1, .about_img3{ 
+       	    img{width: 300px;height: auto;} 
+       	 } 
+       .about_img3{ 
+       	  img{padding-top:20px;}  	 
+        }
+
+   } 
+
+.feature_boxes{overflow: hidden;margin-top:50px;text-align: center;
+     .field-content{display: table;width: 100%;} 
+     .entity-paragraphs-item{width:20%;display: table-cell;padding:0 2%;border-left: 1px solid #000;
+               &:first-child{border-left:none;}
+               img{width: 100%;height:auto;}
+               .field-name-field-feature-title{color:@dixongold; font-size:20px;line-height: 1.2; padding:20px 10px;}
+               .field-name-field-feature-intro{margin-top:10px;font-size: 14px;padding-bottom: 20px;}         
+     }
+}
+
+.feature_boxes_digits{margin-top:50px;background:url(../img/stone_bg.jpg) no-repeat;
+     .field-content{display: table;width: 100%;}
+     .entity-paragraphs-item{width: 25%;display: table-cell;padding:4% 5%;border-left: 2px solid #FFF;color:#FFF;text-align:center;
+           &:first-child{border-left:none;} 
+           .field-name-field-feature-big-txt{font-size:45px;font-weight: bold;}
+           .field-name-field-feature-small-txt{font-size: 25px;}
+     }
+}
+
+/* triangle separator */
+.bottom_triangle{position: absolute; .rotate(45deg); top:-20px; left:50%; width:41px; height:41px;margin-left:-21px;background-color:white; }
+
+
+/* news section */
+.news_section{position: relative; 
+  .news_section_wrapper{background:url(../img/news_bg.png) repeat;min-height: 200px;padding-bottom:100px;
+     .news_intro{padding-top:150px;text-align: center;margin-bottom: 70px;
+            h2{margin:0px; color:@dixongold;margin-bottom: 20px;}
+            p{font-size: 18px;}
+         }
+  }
+   
+ .news_content{
+        .views-field-title a{text-decoration: none; font-size: 20px;color:#000;line-height: 1.6;}
+        .views-field-field-news-date{color:@dixongold;font-size: 18px;margin-bottom: 10px;}
+        .views-field-nothing{font-size: 16px;line-height: 1.2;   
+        	p{display: inline;
+                   a{font-size: 16px;}
+        	}
+        	a{text-decoration: underline;font-size:17px;color:#000;}
+        }
+
+        .views-row{padding-bottom: 50px;margin-bottom: 80px;border-bottom: 2px solid #000;  }
+            /* &.views-row-last{border:none;} */
+      
+   }
+
+}
+
+
+.team_section{position: relative; text-align: center;
+          h2{color:@dixongold;font-size: 30px;margin-top: 60px;}
+          h3{margin-bottom: 40px;}
+          .view-content{margin:0 auto;margin-top: 40px;
+                 display: table;width: 80%;
+                 .views-row{width: 50%;display: table-cell;text-align: center;
+                     img{display: inline-block;margin-bottom: 20px;}
+                 }
+          }  
+
+          .view-footer{margin-bottom:70px;margin-top: 30px;
+              a{text-decoration:underline;}
+
+        }
+
+}
+
+
+.addresses_section{position: relative;background: url(../img/diamond_bg.png) repeat;padding-bottom: 100px;
+     .field-content{display: table;width: 100%;}
+     .address_section_content{padding-top:60px;}
+     .entity-paragraphs-item{width: 33%;display: table-cell;padding:4% 5%; text-align:center;
+           &:first-child{border-left:none;} 
+           .field-name-field-address-title{font-size:25px;margin-bottom: 30px;
+              &:before{width:9px;height: 20px; content: ' ';border:2px solid @dixonlightgold;display:block;margin:20px auto;
+                    -ms-transform: skewY(45deg) rotate(23deg); /* IE 9 */
+                    -webkit-transform: skewY(45deg) rotate(23deg); /* Chrome, Safari, Opera */
+                     transform: skewY(45deg) rotate(23deg);      }
+             }
+           .field-name-field-feature-small-txt{font-size: 23px;}
+     }
+
+     .address_triangle{
+
+     }
+
+}
+
+ 
+
+  .links_section{background-color: #2a5450;text-align: center;overflow: hidden;padding-bottom: 120px;padding-top:80px;
+      h2{margin-top: 0px;;margin-bottom: 40px;color:#FFF;}
+      .field-content{display:block;
+          a{color:white;display:block;text-decoration:underline;font-size: 17px;}
+      }
+  
+  }
+
+
+  .footer{margin-top:0px;border:none;background-color: #000;color: #FFF;padding-top:20px;text-align: center;
+        .footer_sep{position: relative;}
+        .footer_sep::before, .footer_sep::after {
+          border-bottom: 30px solid #000;
+          box-sizing: border-box;
+          content: "";
+          height: 0;
+          position: absolute;
+          top: -50px;
+        }
+        
+        .footer_sep::before {
+          border-right: 28px solid transparent;
+          display: block;
+          left: 0;
+          width: 50%;
+        }
+        
+        .footer_sep::after {
+          border-left: 28px solid transparent;
+          right: 0;
+          width: 50%;
+        }
+
+        h2.block-title{color: #999999; text-transform:uppercase; margin-top:100px;margin-bottom: 70px;font-size: 24px;}  
+        p{line-height: 35px;font-size: 18px;}   
+        p.social_links{ margin-bottom:70px;margin-top:40px;
+             a{color:@dixongold;  font-size:66px; padding:14px;}
+        } 
+
+
+  }
+
+  .col-sm-12{min-height:0px;} 
+
+&.node-type-news{
+    .main-container{width: 50%;margin:0 auto;}
+    h1.page-header{margin-bottom: 8px;}
+    .field-name-field-news-date{font-size: 18px;margin-bottom: 50px;}
+    .field-name-body{padding-bottom: 120px;line-height: 25px;font-size: 17px; 
+          p{margin-bottom: @dixonparagraphmargin;}
+      }
+
+}
+
+
+&.page-user{
+     .main-container{padding-bottom:140px;}
+
+}
+
+/* 404 page setting */
+&.page-node-5{
+    .main-container{min-height: 500px;text-align: center;}
+
+}
+
+
+} /* end body */
+
+
+
+
+/* exception for admin view */
+
+.admin-menu{padding-top:65px;
+    .full-width-header{top:25px;}
+    .nav-tabs{position: fixed;left:0px;bottom: 0px;background-color: #FFF;z-index: 999;}
+
+
+}
